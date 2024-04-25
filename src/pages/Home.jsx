@@ -9,10 +9,8 @@ import Work from '../components/Work';
 import Blog from '../components/Blog';
 import Contact from '../components/Contact';
 import Testiminails from '../components/Testiminails';
-// import Layout from '../layouts/Layout';
-import Header from '../layouts/Header';
-import Footer from '../layouts/Footer';
 import Layout from '../layouts/Layout';
+import TypingAnimation from '../components/TypingAnimation';
 
 function Home() {
     const [activeLink, setActiveLink] = useState('home');
@@ -71,34 +69,41 @@ function Home() {
 
     return (
         <>
-            <Layout about={filteredAbout}>
+            <Layout headerColor={'dark'} about={filteredAbout}>
                 {/* Home Banner */}
-                <section
-                    id="home"
-                    className="home-banner-02 bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: `url(${filteredAbout.avatar.url})` }}
-                >
+                <section id="home" className="home-banner-01">
                     <div className="container">
                         <div className="row full-screen align-items-center p-100px-tb">
-                            <div className="col-12">
-                                <div className="ht-text text-center">
-                                    <h6>Hello There!</h6>
-                                    <h1>I'm {filteredAbout.name}</h1>
-                                    <div className="nav ht-list justify-content-center">
-                                        <span>{filteredAbout.title}</span> <span>Web Developer</span> <span>UI/UX Designer</span>
+                            <div className="col-md-6">
+                                <div className="ht-text">
+                                    <h6>Hello there...</h6>
+                                    <h1>{filteredAbout.name}</h1>
+                                    <h2>
+                                        I Am Passionate <TypingAnimation about={filteredAbout} />
+                                    </h2>
+                                    <p>{filteredAbout.description}</p>
+                                    <div className="btn-bar go-to">
+                                        <Link className="m-btn m-btn-theme" to="work">
+                                            my work
+                                        </Link>
+                                        <Link className="m-btn m-btn-t-theme" to="contactus">
+                                            Hire Me
+                                        </Link>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="col-md-6">
+                                <img src={filteredAbout.avatar.url} alt="image" />
                             </div>
                         </div>
                     </div>
                     <div className="go-to go-to-next">
-                        <Link spy={true} smooth={true} hashSpy={true} offset={50} duration={500} delay={1000} to="about">
+                        <Link to="about">
                             <span />
                         </Link>
                     </div>
                 </section>
-                {/* End Home Banner */}
-                {/* about us */}
+
                 {/* End Home Banner */}
                 {/* about us */}
                 <About about={filteredAbout} social={filteredSocialHandles} />
@@ -121,7 +126,6 @@ function Home() {
                 {/* End Blog */}
                 <Contact about={filteredAbout} />
             </Layout>
-            {/* Home Banner */}
         </>
     );
 }
