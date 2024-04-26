@@ -109,16 +109,16 @@ function Home() {
                 <About about={filteredAbout} social={filteredSocialHandles} />
                 {/* end about us */}
                 {/* fun */}
-                <Skills skills={sortedFilteredSkills} />
+                <Skills skills={sortedFilteredSkills} about={filteredAbout} />
                 {/* End fun */}
                 {/* resume */}
-                <Services services={filteredServices} />
+                <Services services={filteredServices} about={filteredAbout} />
                 {/* End resume */}
                 {/* Work */}
                 <Work work={sortedFilteredProject} about={filteredAbout} />
                 {/* End work */}
                 {/* Testimonials */}
-                <Testiminails testimonials={filteredTestimonials} />
+                <Testiminails testimonials={filteredTestimonials} about={filteredAbout} />
 
                 {/* End Testimonials */}
                 {/* Blog */}
